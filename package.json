@@ -1,0 +1,26 @@
+{
+	"name": "@thoughtsunificator/grid",
+	"version": "1.0.0",
+	"main": "index.js",
+	"type": "module",
+	"description": "Grid system",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/thoughtsunificator/grid.git"
+	},
+	"bugs": {
+		"url": "https://github.com/thoughtsunificator/grid/issues"
+	},
+	"author": "Romain Lebesle <oss@thoughtsunificator.me> (https://thoughtsunificator.me)",
+	"license": "MIT",
+	"scripts": {
+		"test": "mocha",
+		"generate-docs": "jsdoc --configure .jsdoc.json --verbose"
+	},
+	"devDependencies": {
+		"docdash": "^1.2.0",
+		"eslint": "^7.28.0",
+		"jsdoc": "^3.6.6",
+		"mocha": "^9.1.1"
+	}
+}
