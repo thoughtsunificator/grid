@@ -8,7 +8,7 @@ import Column from "./column.js"
 class Grid {
 
 	constructor() {
-		this._cells = {}
+		this._columns = {}
 	}
 
 	/**
@@ -25,11 +25,11 @@ class Grid {
 				cell_.neighbors.push(neighbor_)
 			}
 		}
-		if(!this.cells[cell.x]) {
-			this.cells[cell.x] = new Column(cell.x)
+		if(!this.columns[cell.x]) {
+			this.columns[cell.x] = new Column(cell.x)
 		}
-		cell._column = this.cells[cell.x]
-		this.cells[cell.x].cells[cell.y] = cell
+		cell._column = this.columns[cell.x]
+		this.columns[cell.x].cells[cell.y] = cell
 	}
 
 	/**
@@ -50,19 +50,19 @@ class Grid {
 	 * @returns {Cell}
 	 */
 	getCell(x, y) {
-		return this.cells[x].cells[y]
+		return this.columns[x].cells[y]
 	}
 
 	getCells() {
-		return Object.values(this.cells).map(column => Object.values(column.cells)).flat()
+		return Object.values(this.columns).map(column => Object.values(column.cells)).flat()
 	}
 
 	/**
 	 * @readonly
 	 * @type {column[]}
 	 */
-	get cells() {
-		return this._cells
+	get columns() {
+		return this._columns
 	}
 
 }

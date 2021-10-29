@@ -6,9 +6,9 @@ describe("Grid", () => {
 
 	it("instance", () => {
 		const grid = new Grid()
-		assert.deepEqual(grid.cells, {})
+		assert.deepEqual(grid.columns, {})
 		assert.throws(() => {
-			grid.cells = ""
+			grid.columns = ""
 		})
 	})
 
@@ -16,11 +16,11 @@ describe("Grid", () => {
 		const grid = new Grid()
 		const cell = new Cell(0, 1)
 		grid.addCell(cell)
-		assert.deepEqual(grid.cells, { 0: cell.column })
+		assert.deepEqual(grid.columns, { 0: cell.column })
 		assert.deepEqual(cell.column.cells, { 1: cell })
 		const cell_ = new Cell(0 ,2)
 		grid.addCell(cell_)
-		assert.deepEqual(grid.cells, { 0: cell_.column })
+		assert.deepEqual(grid.columns, { 0: cell_.column })
 		assert.deepEqual(cell.column.cells, { 1: cell, 2: cell_ })
 	})
 
