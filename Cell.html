@@ -29,7 +29,7 @@
     
     <input type="text" id="nav-search" placeholder="Search" />
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Cell.html">Cell</a><ul class='methods'><li data-type='method'><a href="Cell.html#isAdjacentTo">isAdjacentTo</a></li><li data-type='method'><a href="Cell.html#getAxeCells">getAxeCells</a></li><li data-type='method'><a href="Cell.html#getNeighbor">getNeighbor</a></li></ul></li><li><a href="Column.html">Column</a></li><li><a href="Grid.html">Grid</a><ul class='methods'><li data-type='method'><a href="Grid.html#addCell">addCell</a></li><li data-type='method'><a href="Grid.html#build">build</a></li><li data-type='method'><a href="Grid.html#getCell">getCell</a></li></ul></li><li><a href="Neighbor.html">Neighbor</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Cell.html">Cell</a><ul class='methods'><li data-type='method'><a href="Cell.html#isAdjacentTo">isAdjacentTo</a></li><li data-type='method'><a href="Cell.html#getAxeCells">getAxeCells</a></li><li data-type='method'><a href="Cell.html#getNeighborByCell">getNeighborByCell</a></li></ul></li><li><a href="Column.html">Column</a></li><li><a href="Grid.html">Grid</a><ul class='methods'><li data-type='method'><a href="Grid.html#addCell">addCell</a></li><li data-type='method'><a href="Grid.html#build">build</a></li><li data-type='method'><a href="Grid.html#getCell">getCell</a></li></ul></li><li><a href="Neighbor.html">Neighbor</a></li></ul>
 </nav>
 
 <div id="main">
@@ -243,7 +243,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cell.js.html">cell.js</a>, <a href="cell.js.html#line93">line 93</a>
+        <a href="cell.js.html">cell.js</a>, <a href="cell.js.html#line98">line 98</a>
     </li></ul></dd>
     
 
@@ -312,7 +312,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cell.js.html">cell.js</a>, <a href="cell.js.html#line101">line 101</a>
+        <a href="cell.js.html">cell.js</a>, <a href="cell.js.html#line106">line 106</a>
     </li></ul></dd>
     
 
@@ -381,7 +381,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cell.js.html">cell.js</a>, <a href="cell.js.html#line109">line 109</a>
+        <a href="cell.js.html">cell.js</a>, <a href="cell.js.html#line114">line 114</a>
     </li></ul></dd>
     
 
@@ -450,7 +450,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cell.js.html">cell.js</a>, <a href="cell.js.html#line117">line 117</a>
+        <a href="cell.js.html">cell.js</a>, <a href="cell.js.html#line122">line 122</a>
     </li></ul></dd>
     
 
@@ -519,7 +519,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cell.js.html">cell.js</a>, <a href="cell.js.html#line125">line 125</a>
+        <a href="cell.js.html">cell.js</a>, <a href="cell.js.html#line130">line 130</a>
     </li></ul></dd>
     
 
@@ -586,7 +586,7 @@
 
     
 
-    <h4 class="name" id="isAdjacentTo"><span class="type-signature"></span>isAdjacentTo<span class="signature">()</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id="isAdjacentTo"><span class="type-signature"></span>isAdjacentTo<span class="signature">(cell)</span><span class="type-signature"> &rarr; {object}</span></h4>
 
     
 
@@ -598,7 +598,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cell.js.html">cell.js</a>, <a href="cell.js.html#line23">line 23</a>
+        <a href="cell.js.html">cell.js</a>, <a href="cell.js.html#line24">line 24</a>
     </li></ul></dd>
     
 
@@ -645,6 +645,55 @@
 
 
 
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>cell</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Cell.html">Cell</a></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -687,7 +736,7 @@
 
     
 
-    <h4 class="name" id="getAxeCells"><span class="type-signature"></span>getAxeCells<span class="signature">()</span><span class="type-signature"> &rarr; {array}</span></h4>
+    <h4 class="name" id="getAxeCells"><span class="type-signature"></span>getAxeCells<span class="signature">(axe, path<span class="signature-attributes">opt</span>, axeCells<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {array}</span></h4>
 
     
 
@@ -699,7 +748,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cell.js.html">cell.js</a>, <a href="cell.js.html#line54">line 54</a>
+        <a href="cell.js.html">cell.js</a>, <a href="cell.js.html#line59">line 59</a>
     </li></ul></dd>
     
 
@@ -746,6 +795,152 @@
 
 
 
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>getAxeCells(Neighbor.AXE.VERTICAL)</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>axe</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Axe</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>axeCells</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>[]</code>
+                
+                </td>
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -788,7 +983,7 @@
 
     
 
-    <h4 class="name" id="getNeighbor"><span class="type-signature"></span>getNeighbor<span class="signature">(cell)</span><span class="type-signature"> &rarr; {<a href="Neighbor.html">Neighbor</a>}</span></h4>
+    <h4 class="name" id="getNeighborByCell"><span class="type-signature"></span>getNeighborByCell<span class="signature">(cell)</span><span class="type-signature"> &rarr; {<a href="Neighbor.html">Neighbor</a>}</span></h4>
 
     
 
@@ -800,7 +995,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="cell.js.html">cell.js</a>, <a href="cell.js.html#line85">line 85</a>
+        <a href="cell.js.html">cell.js</a>, <a href="cell.js.html#line90">line 90</a>
     </li></ul></dd>
     
 
@@ -953,7 +1148,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Sun Oct 31 2021 11:20:41 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Sun Oct 31 2021 11:26:50 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
