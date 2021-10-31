@@ -46,7 +46,7 @@ class RelativePosition {
 
 	/**
 	 * @readonly
-	 * @type {Direction}}
+	 * @type {Direction}
 	 */
 	get direction() {
 		return this._direction
