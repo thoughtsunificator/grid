@@ -18,6 +18,7 @@ class Cell {
 	}
 
 	/**
+	 * @param {Cell}
 	 * @returns {object}
 	 */
 	isAdjacentTo(cell) {
@@ -49,7 +50,11 @@ class Cell {
 	}
 
 	/**
+	 * @param {Axe}    axe
+	 * @param {string} [path]
+	 * @param {string} [axeCells=[]]
 	 * @returns {array}
+	 * @example getAxeCells(Neighbor.AXE.VERTICAL)
 	 */
 	getAxeCells(axe, path = [], axeCells = []) {
 		if(axeCells.length === 0) {
@@ -82,7 +87,7 @@ class Cell {
 	 * @param   {Cell} cell
 	 * @returns {Neighbor}
 	 */
-	getNeighbor(cell) {
+	getNeighborByCell(cell) {
 		return this.neighbors.find(neighbor => neighbor.cell === cell)
 	}
 

@@ -48,15 +48,15 @@ describe("Cell", () => {
 		assert.strictEqual(axeCells[3].y, 3)
 	})
 
-	it("getNeighbor", () => {
+	it("getNeighborByCell", () => {
 		const grid = new Grid()
 		grid.build(4)
-		const neighbor = grid.columns[0].cells[0].getNeighbor(grid.columns[0].cells[1])
+		const neighbor = grid.columns[0].cells[0].getNeighborByCell(grid.columns[0].cells[1])
 		assert.strictEqual(neighbor.axe, Neighbor.AXE.VERTICAL)
 		assert.strictEqual(neighbor.direction, Neighbor.DIRECTION.FORWARD)
 		assert.strictEqual(neighbor.cell.x, 0)
 		assert.strictEqual(neighbor.cell.y, 1)
-		const neighbor_ = grid.columns[2].cells[2].getNeighbor(grid.columns[3].cells[3])
+		const neighbor_ = grid.columns[2].cells[2].getNeighborByCell(grid.columns[3].cells[3])
 		assert.strictEqual(neighbor_.axe, Neighbor.AXE.DIAGONAL_RIGHT)
 		assert.strictEqual(neighbor_.direction, Neighbor.DIRECTION.FORWARD)
 		assert.strictEqual(neighbor_.cell.x, 3)
