@@ -29,7 +29,7 @@
     
     <input type="text" id="nav-search" placeholder="Search" />
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Cell.html">Cell</a><ul class='methods'><li data-type='method'><a href="Cell.html#isAdjacentTo">isAdjacentTo</a></li><li data-type='method'><a href="Cell.html#getAxeCells">getAxeCells</a></li><li data-type='method'><a href="Cell.html#getNeighborByCell">getNeighborByCell</a></li></ul></li><li><a href="Column.html">Column</a></li><li><a href="Grid.html">Grid</a><ul class='methods'><li data-type='method'><a href="Grid.html#addCell">addCell</a></li><li data-type='method'><a href="Grid.html#build">build</a></li><li data-type='method'><a href="Grid.html#getCell">getCell</a></li></ul></li><li><a href="Neighbor.html">Neighbor</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Cell.html">Cell</a><ul class='methods'><li data-type='method'><a href="Cell.html#getRelativePosition">getRelativePosition</a></li><li data-type='method'><a href="Cell.html#getAxeCells">getAxeCells</a></li><li data-type='method'><a href="Cell.html#getNeighborByCell">getNeighborByCell</a></li></ul></li><li><a href="Column.html">Column</a></li><li><a href="Grid.html">Grid</a><ul class='methods'><li data-type='method'><a href="Grid.html#addCell">addCell</a></li><li data-type='method'><a href="Grid.html#build">build</a></li><li data-type='method'><a href="Grid.html#getCell">getCell</a></li></ul></li><li><a href="Neighbor.html">Neighbor</a></li><li><a href="RelativePosition.html">RelativePosition</a></li></ul>
 </nav>
 
 <div id="main">
@@ -44,7 +44,7 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import Neighbor from "./neighbor.js"
+            <pre class="prettyprint source linenums"><code>import RelativePosition from "./relative-position.js"
 
 /**
  * @global
@@ -65,32 +65,32 @@ class Cell {
 
 	/**
 	 * @param {Cell}
-	 * @returns {object}
+	 * @returns {RelativePosition}
 	 */
-	isAdjacentTo(cell) {
+	getRelativePosition(cell) {
 		if (this.x === cell.x &amp;&amp; this.y - 1 === cell.y) {
-			return { axe: Neighbor.AXE.VERTICAL, direction: Neighbor.DIRECTION.BACKWARD }
+			return new RelativePosition(RelativePosition.AXE.VERTICAL, RelativePosition.DIRECTION.BACKWARD)
 		}
 		if (this.x === cell.x &amp;&amp; this.y + 1 === cell.y) {
-			return { axe: Neighbor.AXE.VERTICAL, direction: Neighbor.DIRECTION.FORWARD }
+			return new RelativePosition(RelativePosition.AXE.VERTICAL, RelativePosition.DIRECTION.FORWARD)
 		}
 		if (this.x - 1 === cell.x &amp;&amp; this.y === cell.y ) {
-			return { axe: Neighbor.AXE.HORIZONTAL, direction: Neighbor.DIRECTION.BACKWARD }
+			return new RelativePosition(RelativePosition.AXE.HORIZONTAL, RelativePosition.DIRECTION.BACKWARD)
 		}
 		if (this.x + 1 === cell.x &amp;&amp; this.y === cell.y ) {
-			return { axe: Neighbor.AXE.HORIZONTAL, direction: Neighbor.DIRECTION.FORWARD }
+			return new RelativePosition(RelativePosition.AXE.HORIZONTAL, RelativePosition.DIRECTION.FORWARD)
 		}
 		if (this.x - 1 === cell.x &amp;&amp; this.y - 1 === cell.y) {
-			return { axe: Neighbor.AXE.DIAGONAL_RIGHT, direction: Neighbor.DIRECTION.BACKWARD }
+			return new RelativePosition(RelativePosition.AXE.DIAGONAL_RIGHT, RelativePosition.DIRECTION.BACKWARD)
 		}
 		if (this.x + 1 === cell.x &amp;&amp; this.y + 1 === cell.y) {
-			return { axe: Neighbor.AXE.DIAGONAL_RIGHT, direction: Neighbor.DIRECTION.FORWARD }
+			return new RelativePosition(RelativePosition.AXE.DIAGONAL_RIGHT, RelativePosition.DIRECTION.FORWARD)
 		}
 		if (this.x - 1 === cell.x &amp;&amp; this.y + 1 === cell.y) {
-			return { axe: Neighbor.AXE.DIAGONAL_LEFT, direction: Neighbor.DIRECTION.BACKWARD }
+			return new RelativePosition(RelativePosition.AXE.DIAGONAL_LEFT, RelativePosition.DIRECTION.BACKWARD)
 		}
 		if (this.x + 1 === cell.x &amp;&amp; this.y - 1 === cell.y) {
-			return { axe: Neighbor.AXE.DIAGONAL_LEFT, direction: Neighbor.DIRECTION.FORWARD }
+			return new RelativePosition(RelativePosition.AXE.DIAGONAL_LEFT, RelativePosition.DIRECTION.FORWARD)
 		}
 		return null
 	}
@@ -100,14 +100,14 @@ class Cell {
 	 * @param {string} [path]
 	 * @param {string} [axeCells=[]]
 	 * @returns {array}
-	 * @example getAxeCells(Neighbor.AXE.VERTICAL)
+	 * @example getAxeCells(RelativePosition.AXE.VERTICAL)
 	 */
 	getAxeCells(axe, path = [], axeCells = []) {
 		if(axeCells.length === 0) {
 			axeCells.push(this)
 		}
 		path.push(this)
-		this.neighbors.filter(neighbor => neighbor.axe === axe &amp;&amp; path.includes(neighbor.cell) === false).forEach(neighbor => {
+		this.neighbors.filter(neighbor => neighbor.relativePosition.axe === axe &amp;&amp; path.includes(neighbor.cell) === false).forEach(neighbor => {
 			axeCells.push(neighbor.cell)
 			axeCells.concat(neighbor.cell.getAxeCells(axe, path, axeCells))
 		})
@@ -198,7 +198,7 @@ export default Cell
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Sun Oct 31 2021 11:26:50 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Sun Oct 31 2021 11:40:16 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

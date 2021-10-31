@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>neighbor.js - Documentation</title>
+    <title>relative-position.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -34,7 +34,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">neighbor.js</h1>
+    <h1 class="page-title">relative-position.js</h1>
     
 
     
@@ -47,36 +47,60 @@
             <pre class="prettyprint source linenums"><code>/**
  * @global
  */
-class Neighbor {
+class RelativePosition {
 
 	/**
-	 * @param {Cell}             cell
-	 * @param {RelativePosition} axe
+	 * @property AXE {Axe}
+	 * @property AXE.VERTICAL       {string}
+	 * @property AXE.HORIZONTAL     {string}
+	 * @property AXE.DIAGONAL_LEFT  {string}
+	 * @property AXE.DIAGONAL_RIGHT {string}
 	 */
-	constructor(cell, relativePosition) {
-		this._cell = cell
-		this._relativePosition = relativePosition
+	static AXE = {
+		VERTICAL: "AXE_VERTICAL",
+		HORIZONTAL: "AXE_HORIZONTAL",
+		DIAGONAL_LEFT: "AXE_DIAGONAL_LEFT",
+		DIAGONAL_RIGHT: "AXE_DIAGONAL_RIGHT",
+	}
+
+	/**
+	 * @property Direction {Direction}
+	 * @property Direction.FORWARD  {string}
+	 * @property Direction.BACKWARD {string}
+	 */
+	static DIRECTION = {
+		FORWARD: "DIRECTION_FORWARD",
+		BACKWARD: "DIRECTION_BACKWARD",
+	}
+
+	/**
+	 * @param {Axe}       axe
+	 * @param {Direction} direction
+	 */
+	constructor(axe, direction) {
+		this._axe = axe
+		this._direction = direction
 	}
 
 	/**
 	 * @readonly
-	 * @type {Cell}
+	 * @type {Axe}
 	 */
-	get cell() {
-		return this._cell
+	get axe() {
+		return this._axe
 	}
 
 	/**
 	 * @readonly
-	 * @type {RelativePosition}
+	 * @type {Direction}}
 	 */
-	get relativePosition() {
-		return this._relativePosition
+	get direction() {
+		return this._direction
 	}
 
 }
 
-export default Neighbor
+export default RelativePosition
 </code></pre>
         </article>
     </section>

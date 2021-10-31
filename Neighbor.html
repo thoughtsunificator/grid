@@ -29,7 +29,7 @@
     
     <input type="text" id="nav-search" placeholder="Search" />
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Cell.html">Cell</a><ul class='methods'><li data-type='method'><a href="Cell.html#isAdjacentTo">isAdjacentTo</a></li><li data-type='method'><a href="Cell.html#getAxeCells">getAxeCells</a></li><li data-type='method'><a href="Cell.html#getNeighborByCell">getNeighborByCell</a></li></ul></li><li><a href="Column.html">Column</a></li><li><a href="Grid.html">Grid</a><ul class='methods'><li data-type='method'><a href="Grid.html#addCell">addCell</a></li><li data-type='method'><a href="Grid.html#build">build</a></li><li data-type='method'><a href="Grid.html#getCell">getCell</a></li></ul></li><li><a href="Neighbor.html">Neighbor</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Cell.html">Cell</a><ul class='methods'><li data-type='method'><a href="Cell.html#getRelativePosition">getRelativePosition</a></li><li data-type='method'><a href="Cell.html#getAxeCells">getAxeCells</a></li><li data-type='method'><a href="Cell.html#getNeighborByCell">getNeighborByCell</a></li></ul></li><li><a href="Column.html">Column</a></li><li><a href="Grid.html">Grid</a><ul class='methods'><li data-type='method'><a href="Grid.html#addCell">addCell</a></li><li data-type='method'><a href="Grid.html#build">build</a></li><li data-type='method'><a href="Grid.html#getCell">getCell</a></li></ul></li><li><a href="Neighbor.html">Neighbor</a></li><li><a href="RelativePosition.html">RelativePosition</a></li></ul>
 </nav>
 
 <div id="main">
@@ -61,7 +61,7 @@
 
     
 
-    <h4 class="name" id="Neighbor"><span class="type-signature"></span>new Neighbor<span class="signature">(cell, axe, direction)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Neighbor"><span class="type-signature"></span>new Neighbor<span class="signature">(cell, axe)</span><span class="type-signature"></span></h4>
 
     
 
@@ -176,30 +176,7 @@
             <td class="type">
             
                 
-<span class="param-type">Axe</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>direction</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Direction</span>
+<span class="param-type"><a href="RelativePosition.html">RelativePosition</a></span>
 
 
             
@@ -255,416 +232,6 @@
 
         
             
-<h4 class="name" id="AXE"><span class="type-signature"></span>AXE<span class="type-signature"></span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="neighbor.js.html">neighbor.js</a>, <a href="neighbor.js.html#line13">line 13</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>AXE</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Axe</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                <h6>Properties</h6>
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>VERTICAL</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>HORIZONTAL</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>DIAGONAL_LEFT</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>DIAGONAL_RIGHT</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="DIRECTION"><span class="type-signature"></span>DIRECTION<span class="type-signature"></span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="neighbor.js.html">neighbor.js</a>, <a href="neighbor.js.html#line25">line 25</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>Direction</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Direction</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                <h6>Properties</h6>
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>FORWARD</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>BACKWARD</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
 <h4 class="name" id="cell"><span class="type-signature">(readonly) </span>cell<span class="type-signature"> :<a href="Cell.html">Cell</a></span></h4>
 
 
@@ -676,7 +243,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="neighbor.js.html">neighbor.js</a>, <a href="neighbor.js.html#line46">line 46</a>
+        <a href="neighbor.js.html">neighbor.js</a>, <a href="neighbor.js.html#line19">line 19</a>
     </li></ul></dd>
     
 
@@ -734,7 +301,7 @@
 
         
             
-<h4 class="name" id="axe"><span class="type-signature">(readonly) </span>axe<span class="type-signature"> :Axe</span></h4>
+<h4 class="name" id="relativePosition"><span class="type-signature">(readonly) </span>relativePosition<span class="type-signature"> :<a href="RelativePosition.html">RelativePosition</a></span></h4>
 
 
 
@@ -745,7 +312,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="neighbor.js.html">neighbor.js</a>, <a href="neighbor.js.html#line54">line 54</a>
+        <a href="neighbor.js.html">neighbor.js</a>, <a href="neighbor.js.html#line27">line 27</a>
     </li></ul></dd>
     
 
@@ -790,76 +357,7 @@
     <ul>
         <li>
             
-<span class="param-type">Axe</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="direction"><span class="type-signature">(readonly) </span>direction<span class="type-signature"> :Direction</span></h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="neighbor.js.html">neighbor.js</a>, <a href="neighbor.js.html#line62">line 62</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">Direction</span>
+<span class="param-type"><a href="RelativePosition.html">RelativePosition</a></span>
 
 
         </li>
@@ -892,7 +390,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Sun Oct 31 2021 11:26:50 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Sun Oct 31 2021 11:40:16 GMT+0000 (Coordinated Universal Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
