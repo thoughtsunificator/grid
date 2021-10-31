@@ -53,7 +53,7 @@ class Cell {
 	 * @param {Axe}    axe
 	 * @param {string} [path]
 	 * @param {string} [axeCells=[]]
-	 * @returns {array}
+	 * @returns {Cell[]}
 	 * @example getAxeCells(RelativePosition.AXE.VERTICAL)
 	 */
 	getAxeCells(axe, path = [], axeCells = []) {
