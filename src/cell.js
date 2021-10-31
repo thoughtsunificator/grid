@@ -22,28 +22,28 @@ class Cell {
 	 */
 	isAdjacentTo(cell) {
 		if (this.x === cell.x && this.y - 1 === cell.y) {
-			return { axe: Neighbor.AXE_VERTICAL, direction: Neighbor.DIRECTION_BACKWARD }
+			return { axe: Neighbor.AXE.VERTICAL, direction: Neighbor.DIRECTION.BACKWARD }
 		}
 		if (this.x === cell.x && this.y + 1 === cell.y) {
-			return { axe: Neighbor.AXE_VERTICAL, direction: Neighbor.DIRECTION_FORWARD }
+			return { axe: Neighbor.AXE.VERTICAL, direction: Neighbor.DIRECTION.FORWARD }
 		}
 		if (this.x - 1 === cell.x && this.y === cell.y ) {
-			return { axe: Neighbor.AXE_HORIZONTAL, direction: Neighbor.DIRECTION_BACKWARD }
+			return { axe: Neighbor.AXE.HORIZONTAL, direction: Neighbor.DIRECTION.BACKWARD }
 		}
 		if (this.x + 1 === cell.x && this.y === cell.y ) {
-			return { axe: Neighbor.AXE_HORIZONTAL, direction: Neighbor.DIRECTION_FORWARD }
+			return { axe: Neighbor.AXE.HORIZONTAL, direction: Neighbor.DIRECTION.FORWARD }
 		}
 		if (this.x - 1 === cell.x && this.y - 1 === cell.y) {
-			return { axe: Neighbor.AXE_DIAGONAL_RIGHT, direction: Neighbor.DIRECTION_BACKWARD }
+			return { axe: Neighbor.AXE.DIAGONAL_RIGHT, direction: Neighbor.DIRECTION.BACKWARD }
 		}
 		if (this.x + 1 === cell.x && this.y + 1 === cell.y) {
-			return { axe: Neighbor.AXE_DIAGONAL_RIGHT, direction: Neighbor.DIRECTION_FORWARD }
+			return { axe: Neighbor.AXE.DIAGONAL_RIGHT, direction: Neighbor.DIRECTION.FORWARD }
 		}
 		if (this.x - 1 === cell.x && this.y + 1 === cell.y) {
-			return { axe: Neighbor.AXE_DIAGONAL_LEFT, direction: Neighbor.DIRECTION_BACKWARD }
+			return { axe: Neighbor.AXE.DIAGONAL_LEFT, direction: Neighbor.DIRECTION.BACKWARD }
 		}
 		if (this.x + 1 === cell.x && this.y - 1 === cell.y) {
-			return { axe: Neighbor.AXE_DIAGONAL_LEFT, direction: Neighbor.DIRECTION_FORWARD }
+			return { axe: Neighbor.AXE.DIAGONAL_LEFT, direction: Neighbor.DIRECTION.FORWARD }
 		}
 		return null
 	}

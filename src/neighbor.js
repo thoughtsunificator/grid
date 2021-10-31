@@ -4,45 +4,34 @@
 class Neighbor {
 
 	/**
-	 * @readonly
-	 * @type {String}
+	 * @property AXE {Axe}
+	 * @property AXE.VERTICAL       {string}
+	 * @property AXE.HORIZONTAL     {string}
+	 * @property AXE.DIAGONAL_LEFT  {string}
+	 * @property AXE.DIAGONAL_RIGHT {string}
 	 */
-	static AXE_VERTICAL = "AXE_VERTICAL"
-	/**
-	 * @readonly
-	 * @type {String}
-	 */
-	static AXE_HORIZONTAL = "AXE_HORIZONTAL"
+	static AXE = {
+		VERTICAL: "AXE_VERTICAL",
+		HORIZONTAL: "AXE_HORIZONTAL",
+		DIAGONAL_LEFT: "AXE_DIAGONAL_LEFT",
+		DIAGONAL_RIGHT: "AXE_DIAGONAL_RIGHT",
+	}
 
 	/**
-	 * @readonly
-	 * @type {String}
+	 * @property Direction {Direction}
+	 * @property Direction.FORWARD  {string}
+	 * @property Direction.BACKWARD {string}
 	 */
-	static AXE_DIAGONAL_LEFT = "AXE_DIAGONAL_LEFT"
-
-	/**
-	 * @readonly
-	 * @type {String}
-	 */
-	static AXE_DIAGONAL_RIGHT = "AXE_DIAGONAL_RIGHT"
-
-	/**
-	 * @readonly
-	 * @type {String}
-	 */
-	static DIRECTION_FORWARD = "DIRECTION_FORWARD"
-
-		/**
-	 * @readonly
-	 * @type {String}
-	 */
-	static DIRECTION_BACKWARD = "DIRECTION_BACKWARD"
+	static DIRECTION = {
+		FORWARD: "DIRECTION_FORWARD",
+		BACKWARD: "DIRECTION_BACKWARD",
+	}
 
 
 	/**
-	 * @param {Cell} cell
-	 * @param {string} axe
-	 * @param {string} direction
+	 * @param {Cell}      cell
+	 * @param {Axe}       axe
+	 * @param {Direction} direction
 	 */
 	constructor(cell, axe, direction) {
 		this._cell = cell
@@ -60,7 +49,7 @@ class Neighbor {
 
 	/**
 	 * @readonly
-	 * @type {string}
+	 * @type {Axe}
 	 */
 	get axe() {
 		return this._axe
@@ -68,7 +57,7 @@ class Neighbor {
 
 	/**
 	 * @readonly
-	 * @type {string}
+	 * @type {Direction}
 	 */
 	get direction() {
 		return this._direction
