@@ -14,22 +14,18 @@ describe("Grid", () => {
 
 	it("addCell", () => {
 		const grid = new Grid()
-		const cell = new Cell(0, 1)
-		grid.addCell(cell)
+		const cell = grid.addCell(0, 1)
 		assert.deepEqual(grid.columns, { 0: cell.column })
 		assert.deepEqual(cell.column.cells, { 1: cell })
-		const cell_ = new Cell(0 ,2)
-		grid.addCell(cell_)
+		const cell_ = grid.addCell(0, 2)
 		assert.deepEqual(grid.columns, { 0: cell_.column })
 		assert.deepEqual(cell.column.cells, { 1: cell, 2: cell_ })
 	})
 
 	it("getCell", () => {
 		const grid = new Grid()
-		const cell = new Cell(3, 9)
-		const cell_ = new Cell(1, 1)
-		grid.addCell(cell)
-		grid.addCell(cell_)
+		const cell = grid.addCell(3, 9)
+		const cell_ = grid.addCell(1, 1)
 		assert.deepEqual(grid.getCell(3, 9), cell)
 		assert.deepEqual(grid.getCell(1, 1), cell_)
 	})

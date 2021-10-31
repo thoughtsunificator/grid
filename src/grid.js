@@ -12,9 +12,12 @@ class Grid {
 	}
 
 	/**
-	 * @param {Cell} cell
+	 * @param {number} x
+	 * @param {number} y
+	 * @returns {Cell}
 	 */
-	addCell(cell) {
+	addCell(x, y) {
+		const cell = new Cell(x, y)
 		for(const cell_ of this.getCells()) {
 			const adjacent = cell.isAdjacentTo(cell_)
 			if (adjacent) {
@@ -30,6 +33,7 @@ class Grid {
 		}
 		cell._column = this.columns[cell.x]
 		this.columns[cell.x].cells[cell.y] = cell
+		return cell
 	}
 
 	/**
@@ -38,8 +42,7 @@ class Grid {
 	build(size) {
 		for(let x = 0; x < size; x++) {
 			for(let y = 0; y < size; y++) {
-				const cell = new Cell(x, y)
-				this.addCell(cell)
+				this.addCell(x, y)
 			}
 		}
 	}
