@@ -19,12 +19,12 @@ class Grid {
 	addCell(x, y) {
 		const cell = new Cell(x, y)
 		for(const cell_ of this.getCells()) {
-			const adjacent = cell.isAdjacentTo(cell_)
-			if (adjacent) {
-				const neighbor = new Neighbor(cell_, adjacent.axe, adjacent.direction)
+			const relativePosition = cell.getRelativePosition(cell_)
+			if (relativePosition) {
+				const neighbor = new Neighbor(cell_, relativePosition)
 				cell.neighbors.push(neighbor)
-				const adjacent_ = cell_.isAdjacentTo(cell)
-				const neighbor_ = new Neighbor(cell, adjacent_.axe, adjacent_.direction)
+				const relativePosition_ = cell_.getRelativePosition(cell)
+				const neighbor_ = new Neighbor(cell, relativePosition_)
 				cell_.neighbors.push(neighbor_)
 			}
 		}

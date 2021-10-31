@@ -1,6 +1,6 @@
 import assert from "assert"
 
-import Neighbor from "../src/neighbor.js"
+import RelativePosition from "../src/relative-position.js"
 import { Grid, Cell } from "../index.js"
 
 describe("Cell", () => {
@@ -22,22 +22,22 @@ describe("Cell", () => {
 		})
 	})
 
-	it("isAdjacentTo", () => {
+	it("getRelativePosition", () => {
 		const grid = new Grid()
 		grid.build(8)
-		assert.strictEqual(grid.getCell(0, 0).isAdjacentTo(grid.getCell(0, 0)), null)
-		assert.deepEqual(grid.getCell(0, 0).isAdjacentTo(grid.getCell(0, 1)), { axe: Neighbor.AXE.VERTICAL, direction: Neighbor.DIRECTION.FORWARD })
-		assert.deepEqual(grid.getCell(0, 1).isAdjacentTo(grid.getCell(0, 0)), { axe: Neighbor.AXE.VERTICAL, direction: Neighbor.DIRECTION.BACKWARD })
-		assert.deepEqual(grid.getCell(0, 0).isAdjacentTo(grid.getCell(1, 0)), { axe: Neighbor.AXE.HORIZONTAL, direction: Neighbor.DIRECTION.FORWARD })
-		assert.deepEqual(grid.getCell(1, 0).isAdjacentTo(grid.getCell(0, 0)), { axe: Neighbor.AXE.HORIZONTAL, direction: Neighbor.DIRECTION.BACKWARD })
-		assert.deepEqual(grid.getCell(0, 0).isAdjacentTo(grid.getCell(1, 1)), { axe: Neighbor.AXE.DIAGONAL_RIGHT, direction: Neighbor.DIRECTION.FORWARD })
-		assert.deepEqual(grid.getCell(1, 1).isAdjacentTo(grid.getCell(0, 0)), { axe: Neighbor.AXE.DIAGONAL_RIGHT, direction: Neighbor.DIRECTION.BACKWARD })
+		assert.strictEqual(grid.getCell(0, 0).getRelativePosition(grid.getCell(0, 0)), null)
+		assert.deepEqual(grid.getCell(0, 0).getRelativePosition(grid.getCell(0, 1)), new RelativePosition(RelativePosition.AXE.VERTICAL, RelativePosition.DIRECTION.FORWARD))
+		assert.deepEqual(grid.getCell(0, 1).getRelativePosition(grid.getCell(0, 0)), new RelativePosition(RelativePosition.AXE.VERTICAL, RelativePosition.DIRECTION.BACKWARD))
+		assert.deepEqual(grid.getCell(0, 0).getRelativePosition(grid.getCell(1, 0)), new RelativePosition(RelativePosition.AXE.HORIZONTAL, RelativePosition.DIRECTION.FORWARD))
+		assert.deepEqual(grid.getCell(1, 0).getRelativePosition(grid.getCell(0, 0)), new RelativePosition(RelativePosition.AXE.HORIZONTAL, RelativePosition.DIRECTION.BACKWARD))
+		assert.deepEqual(grid.getCell(0, 0).getRelativePosition(grid.getCell(1, 1)), new RelativePosition(RelativePosition.AXE.DIAGONAL_RIGHT, RelativePosition.DIRECTION.FORWARD))
+		assert.deepEqual(grid.getCell(1, 1).getRelativePosition(grid.getCell(0, 0)), new RelativePosition(RelativePosition.AXE.DIAGONAL_RIGHT, RelativePosition.DIRECTION.BACKWARD))
 	})
 
 	it("getAxeCells", () => {
 		const grid = new Grid()
 		grid.build(4)
-		const axeCells = grid.getCell(0, 0).getAxeCells(Neighbor.AXE.VERTICAL)
+		const axeCells = grid.getCell(0, 0).getAxeCells(RelativePosition.AXE.VERTICAL)
 		assert.strictEqual(axeCells[0].x, 0)
 		assert.strictEqual(axeCells[0].y, 0)
 		assert.strictEqual(axeCells[1].x, 0)
@@ -52,13 +52,13 @@ describe("Cell", () => {
 		const grid = new Grid()
 		grid.build(4)
 		const neighbor = grid.columns[0].cells[0].getNeighborByCell(grid.columns[0].cells[1])
-		assert.strictEqual(neighbor.axe, Neighbor.AXE.VERTICAL)
-		assert.strictEqual(neighbor.direction, Neighbor.DIRECTION.FORWARD)
+		assert.strictEqual(neighbor.relativePosition.axe, RelativePosition.AXE.VERTICAL)
+		assert.strictEqual(neighbor.relativePosition.direction, RelativePosition.DIRECTION.FORWARD)
 		assert.strictEqual(neighbor.cell.x, 0)
 		assert.strictEqual(neighbor.cell.y, 1)
 		const neighbor_ = grid.columns[2].cells[2].getNeighborByCell(grid.columns[3].cells[3])
-		assert.strictEqual(neighbor_.axe, Neighbor.AXE.DIAGONAL_RIGHT)
-		assert.strictEqual(neighbor_.direction, Neighbor.DIRECTION.FORWARD)
+		assert.strictEqual(neighbor_.relativePosition.axe, RelativePosition.AXE.DIAGONAL_RIGHT)
+		assert.strictEqual(neighbor_.relativePosition.direction, RelativePosition.DIRECTION.FORWARD)
 		assert.strictEqual(neighbor_.cell.x, 3)
 		assert.strictEqual(neighbor_.cell.y, 3)
 	})
