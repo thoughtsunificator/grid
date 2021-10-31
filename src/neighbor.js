@@ -5,7 +5,7 @@ class Neighbor {
 
 	/**
 	 * @param {Cell}             cell
-	 * @param {RelativePosition} axe
+	 * @param {RelativePosition} relativePosition
 	 */
 	constructor(cell, relativePosition) {
 		this._cell = cell
