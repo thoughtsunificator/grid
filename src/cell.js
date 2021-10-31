@@ -1,4 +1,4 @@
-import Neighbor from "./neighbor.js"
+import RelativePosition from "./relative-position.js"
 
 /**
  * @global
@@ -18,45 +18,50 @@ class Cell {
 	}
 
 	/**
-	 * @returns {object}
+	 * @param {Cell}
+	 * @returns {RelativePosition}
 	 */
-	isAdjacentTo(cell) {
+	getRelativePosition(cell) {
 		if (this.x === cell.x && this.y - 1 === cell.y) {
-			return { axe: Neighbor.AXE.VERTICAL, direction: Neighbor.DIRECTION.BACKWARD }
+			return new RelativePosition(RelativePosition.AXE.VERTICAL, RelativePosition.DIRECTION.BACKWARD)
 		}
 		if (this.x === cell.x && this.y + 1 === cell.y) {
-			return { axe: Neighbor.AXE.VERTICAL, direction: Neighbor.DIRECTION.FORWARD }
+			return new RelativePosition(RelativePosition.AXE.VERTICAL, RelativePosition.DIRECTION.FORWARD)
 		}
 		if (this.x - 1 === cell.x && this.y === cell.y ) {
-			return { axe: Neighbor.AXE.HORIZONTAL, direction: Neighbor.DIRECTION.BACKWARD }
+			return new RelativePosition(RelativePosition.AXE.HORIZONTAL, RelativePosition.DIRECTION.BACKWARD)
 		}
 		if (this.x + 1 === cell.x && this.y === cell.y ) {
-			return { axe: Neighbor.AXE.HORIZONTAL, direction: Neighbor.DIRECTION.FORWARD }
+			return new RelativePosition(RelativePosition.AXE.HORIZONTAL, RelativePosition.DIRECTION.FORWARD)
 		}
 		if (this.x - 1 === cell.x && this.y - 1 === cell.y) {
-			return { axe: Neighbor.AXE.DIAGONAL_RIGHT, direction: Neighbor.DIRECTION.BACKWARD }
+			return new RelativePosition(RelativePosition.AXE.DIAGONAL_RIGHT, RelativePosition.DIRECTION.BACKWARD)
 		}
 		if (this.x + 1 === cell.x && this.y + 1 === cell.y) {
-			return { axe: Neighbor.AXE.DIAGONAL_RIGHT, direction: Neighbor.DIRECTION.FORWARD }
+			return new RelativePosition(RelativePosition.AXE.DIAGONAL_RIGHT, RelativePosition.DIRECTION.FORWARD)
 		}
 		if (this.x - 1 === cell.x && this.y + 1 === cell.y) {
-			return { axe: Neighbor.AXE.DIAGONAL_LEFT, direction: Neighbor.DIRECTION.BACKWARD }
+			return new RelativePosition(RelativePosition.AXE.DIAGONAL_LEFT, RelativePosition.DIRECTION.BACKWARD)
 		}
 		if (this.x + 1 === cell.x && this.y - 1 === cell.y) {
-			return { axe: Neighbor.AXE.DIAGONAL_LEFT, direction: Neighbor.DIRECTION.FORWARD }
+			return new RelativePosition(RelativePosition.AXE.DIAGONAL_LEFT, RelativePosition.DIRECTION.FORWARD)
 		}
 		return null
 	}
 
 	/**
+	 * @param {Axe}    axe
+	 * @param {string} [path]
+	 * @param {string} [axeCells=[]]
 	 * @returns {array}
+	 * @example getAxeCells(RelativePosition.AXE.VERTICAL)
 	 */
 	getAxeCells(axe, path = [], axeCells = []) {
 		if(axeCells.length === 0) {
 			axeCells.push(this)
 		}
 		path.push(this)
-		this.neighbors.filter(neighbor => neighbor.axe === axe && path.includes(neighbor.cell) === false).forEach(neighbor => {
+		this.neighbors.filter(neighbor => neighbor.relativePosition.axe === axe && path.includes(neighbor.cell) === false).forEach(neighbor => {
 			axeCells.push(neighbor.cell)
 			axeCells.concat(neighbor.cell.getAxeCells(axe, path, axeCells))
 		})
@@ -82,7 +87,7 @@ class Cell {
 	 * @param   {Cell} cell
 	 * @returns {Neighbor}
 	 */
-	getNeighbor(cell) {
+	getNeighborByCell(cell) {
 		return this.neighbors.find(neighbor => neighbor.cell === cell)
 	}
 
