@@ -1,6 +1,6 @@
 import Cell from "./cell.js"
 import Neighbor from "./neighbor.js"
-import Column from "./column.js"
+import Row from "./row.js"
 
 /**
  * @global
@@ -8,7 +8,7 @@ import Column from "./column.js"
 class Grid {
 
 	constructor() {
-		this._columns = {}
+		this._rows = {}
 	}
 
 	/**
@@ -28,11 +28,11 @@ class Grid {
 				cell_.neighbors.push(neighbor_)
 			}
 		}
-		if(!this.columns[cell.x]) {
-			this.columns[cell.x] = new Column(cell.x)
+		if(!this.rows[cell.x]) {
+			this.rows[cell.x] = new Row(cell.x)
 		}
-		cell._column = this.columns[cell.x]
-		this.columns[cell.x].cells[cell.y] = cell
+		cell._row = this.rows[cell.x]
+		this.rows[cell.x].cells[cell.y] = cell
 		return cell
 	}
 
@@ -53,19 +53,19 @@ class Grid {
 	 * @returns {Cell}
 	 */
 	getCell(x, y) {
-		return this.columns[x].cells[y]
+		return this.rows[x].cells[y]
 	}
 
 	getCells() {
-		return Object.values(this.columns).map(column => Object.values(column.cells)).flat()
+		return Object.values(this.rows).map(row => Object.values(row.cells)).flat()
 	}
 
 	/**
 	 * @readonly
-	 * @type {column[]}
+	 * @type {row[]}
 	 */
-	get columns() {
-		return this._columns
+	get rows() {
+		return this._rows
 	}
 
 }
