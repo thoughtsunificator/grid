@@ -1,7 +1,7 @@
 /**
  * @global
  */
-class Column {
+class Row {
 
 	constructor(x) {
 		this._x = x
@@ -26,4 +26,4 @@ class Column {
 
 }
 
-export default Column
+export default Row
