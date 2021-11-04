@@ -1,19 +1,19 @@
 import assert from "assert"
 
 import Neighbor from "../src/neighbor.js"
-import Column from "../src/column.js"
+import Row from "../src/row.js"
 import { Grid } from "../index.js"
 
-describe("Column", () => {
+describe("Row", () => {
 
 	it("instance", () => {
-		const column = new Column(1)
-		assert.strictEqual(column.x, 1)
+		const row = new Row(1)
+		assert.strictEqual(row.x, 1)
 		assert.throws(() => {
-			column.cells = ""
+			row.cells = ""
 		})
 		assert.throws(() => {
-			column.x = ""
+			row.x = ""
 		})
 	})
 

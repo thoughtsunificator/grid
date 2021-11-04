@@ -6,20 +6,20 @@ describe("Grid", () => {
 
 	it("instance", () => {
 		const grid = new Grid()
-		assert.deepEqual(grid.columns, {})
+		assert.deepEqual(grid.rows, {})
 		assert.throws(() => {
-			grid.columns = ""
+			grid.rows = ""
 		})
 	})
 
 	it("addCell", () => {
 		const grid = new Grid()
 		const cell = grid.addCell(0, 1)
-		assert.deepEqual(grid.columns, { 0: cell.column })
-		assert.deepEqual(cell.column.cells, { 1: cell })
+		assert.deepEqual(grid.rows, { 0: cell.row })
+		assert.deepEqual(cell.row.cells, { 1: cell })
 		const cell_ = grid.addCell(0, 2)
-		assert.deepEqual(grid.columns, { 0: cell_.column })
-		assert.deepEqual(cell.column.cells, { 1: cell, 2: cell_ })
+		assert.deepEqual(grid.rows, { 0: cell_.row })
+		assert.deepEqual(cell.row.cells, { 1: cell, 2: cell_ })
 	})
 
 	it("getCell", () => {

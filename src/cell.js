@@ -12,7 +12,7 @@ class Cell {
 	constructor(x, y) {
 		this._x = x
 		this._y = y
-		this._column = null
+		this._row = null
 		this._neighbors = []
 		this._data = null
 	}
@@ -117,10 +117,10 @@ class Cell {
 
 	/**
 	 * @readonly
-	 * @type {Column}
+	 * @type {Row}
 	 */
-	get column() {
-		return this._column
+	get row() {
+		return this._row
 	}
 
 	/**
