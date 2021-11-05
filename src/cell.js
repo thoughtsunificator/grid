@@ -50,20 +50,20 @@ class Cell {
 	}
 
 	/**
-	 * @param {Axe}    axis
+	 * @param {Axis}    axis
 	 * @param {string} [path]
 	 * @param {string} [axisCells=[]]
 	 * @returns {Cell[]}
-	 * @example getAxeCells(RelativePosition.AXIS.VERTICAL)
+	 * @example getAxisCells(RelativePosition.AXIS.VERTICAL)
 	 */
-	getAxeCells(axis, path = [], axisCells = []) {
+	getAxisCells(axis, path = [], axisCells = []) {
 		if(axisCells.length === 0) {
 			axisCells.push(this)
 		}
 		path.push(this)
 		this.neighbors.filter(neighbor => neighbor.relativePosition.axis === axis && path.includes(neighbor.cell) === false).forEach(neighbor => {
 			axisCells.push(neighbor.cell)
-			axisCells.concat(neighbor.cell.getAxeCells(axis, path, axisCells))
+			axisCells.concat(neighbor.cell.getAxisCells(axis, path, axisCells))
 		})
 		axisCells.sort((a, b) => {
 			if (a.y < b.y) {

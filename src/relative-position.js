@@ -4,7 +4,7 @@
 class RelativePosition {
 
 	/**
-	 * @property AXIS {Axe}
+	 * @property AXIS {Axis}
 	 * @property AXIS.VERTICAL       {string}
 	 * @property AXIS.HORIZONTAL     {string}
 	 * @property AXIS.DIAGONAL_LEFT  {string}
@@ -28,7 +28,7 @@ class RelativePosition {
 	}
 
 	/**
-	 * @param {Axe}       axis
+	 * @param {Axis}       axis
 	 * @param {Direction} direction
 	 */
 	constructor(axis, direction) {
@@ -38,7 +38,7 @@ class RelativePosition {
 
 	/**
 	 * @readonly
-	 * @type {Axe}
+	 * @type {Axis}
 	 */
 	get axis() {
 		return this._axis

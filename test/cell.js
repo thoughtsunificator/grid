@@ -34,10 +34,10 @@ describe("Cell", () => {
 		assert.deepEqual(grid.getCell(1, 1).getRelativePosition(grid.getCell(0, 0)), new RelativePosition(RelativePosition.AXIS.DIAGONAL_RIGHT, RelativePosition.DIRECTION.BACKWARD))
 	})
 
-	it("getAxeCells", () => {
+	it("getAxisCells", () => {
 		const grid = new Grid()
 		grid.build(4)
-		const axisCells = grid.getCell(0, 0).getAxeCells(RelativePosition.AXIS.VERTICAL)
+		const axisCells = grid.getCell(0, 0).getAxisCells(RelativePosition.AXIS.VERTICAL)
 		assert.strictEqual(axisCells[0].x, 0)
 		assert.strictEqual(axisCells[0].y, 0)
 		assert.strictEqual(axisCells[1].x, 0)
