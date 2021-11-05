@@ -23,49 +23,49 @@ class Cell {
 	 */
 	getRelativePosition(cell) {
 		if (this.x === cell.x && this.y - 1 === cell.y) {
-			return new RelativePosition(RelativePosition.AXE.VERTICAL, RelativePosition.DIRECTION.BACKWARD)
+			return new RelativePosition(RelativePosition.AXIS.VERTICAL, RelativePosition.DIRECTION.BACKWARD)
 		}
 		if (this.x === cell.x && this.y + 1 === cell.y) {
-			return new RelativePosition(RelativePosition.AXE.VERTICAL, RelativePosition.DIRECTION.FORWARD)
+			return new RelativePosition(RelativePosition.AXIS.VERTICAL, RelativePosition.DIRECTION.FORWARD)
 		}
 		if (this.x - 1 === cell.x && this.y === cell.y ) {
-			return new RelativePosition(RelativePosition.AXE.HORIZONTAL, RelativePosition.DIRECTION.BACKWARD)
+			return new RelativePosition(RelativePosition.AXIS.HORIZONTAL, RelativePosition.DIRECTION.BACKWARD)
 		}
 		if (this.x + 1 === cell.x && this.y === cell.y ) {
-			return new RelativePosition(RelativePosition.AXE.HORIZONTAL, RelativePosition.DIRECTION.FORWARD)
+			return new RelativePosition(RelativePosition.AXIS.HORIZONTAL, RelativePosition.DIRECTION.FORWARD)
 		}
 		if (this.x - 1 === cell.x && this.y - 1 === cell.y) {
-			return new RelativePosition(RelativePosition.AXE.DIAGONAL_RIGHT, RelativePosition.DIRECTION.BACKWARD)
+			return new RelativePosition(RelativePosition.AXIS.DIAGONAL_RIGHT, RelativePosition.DIRECTION.BACKWARD)
 		}
 		if (this.x + 1 === cell.x && this.y + 1 === cell.y) {
-			return new RelativePosition(RelativePosition.AXE.DIAGONAL_RIGHT, RelativePosition.DIRECTION.FORWARD)
+			return new RelativePosition(RelativePosition.AXIS.DIAGONAL_RIGHT, RelativePosition.DIRECTION.FORWARD)
 		}
 		if (this.x - 1 === cell.x && this.y + 1 === cell.y) {
-			return new RelativePosition(RelativePosition.AXE.DIAGONAL_LEFT, RelativePosition.DIRECTION.BACKWARD)
+			return new RelativePosition(RelativePosition.AXIS.DIAGONAL_LEFT, RelativePosition.DIRECTION.BACKWARD)
 		}
 		if (this.x + 1 === cell.x && this.y - 1 === cell.y) {
-			return new RelativePosition(RelativePosition.AXE.DIAGONAL_LEFT, RelativePosition.DIRECTION.FORWARD)
+			return new RelativePosition(RelativePosition.AXIS.DIAGONAL_LEFT, RelativePosition.DIRECTION.FORWARD)
 		}
 		return null
 	}
 
 	/**
-	 * @param {Axe}    axe
+	 * @param {Axe}    axis
 	 * @param {string} [path]
-	 * @param {string} [axeCells=[]]
+	 * @param {string} [axisCells=[]]
 	 * @returns {Cell[]}
-	 * @example getAxeCells(RelativePosition.AXE.VERTICAL)
+	 * @example getAxeCells(RelativePosition.AXIS.VERTICAL)
 	 */
-	getAxeCells(axe, path = [], axeCells = []) {
-		if(axeCells.length === 0) {
-			axeCells.push(this)
+	getAxeCells(axis, path = [], axisCells = []) {
+		if(axisCells.length === 0) {
+			axisCells.push(this)
 		}
 		path.push(this)
-		this.neighbors.filter(neighbor => neighbor.relativePosition.axe === axe && path.includes(neighbor.cell) === false).forEach(neighbor => {
-			axeCells.push(neighbor.cell)
-			axeCells.concat(neighbor.cell.getAxeCells(axe, path, axeCells))
+		this.neighbors.filter(neighbor => neighbor.relativePosition.axis === axis && path.includes(neighbor.cell) === false).forEach(neighbor => {
+			axisCells.push(neighbor.cell)
+			axisCells.concat(neighbor.cell.getAxeCells(axis, path, axisCells))
 		})
-		axeCells.sort((a, b) => {
+		axisCells.sort((a, b) => {
 			if (a.y < b.y) {
 				return -1
 			}
@@ -80,7 +80,7 @@ class Cell {
 			}
 			return 0
 		})
-		return axeCells
+		return axisCells
 	}
 
 	/**
