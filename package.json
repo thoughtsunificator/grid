@@ -1,6 +1,6 @@
 {
 	"name": "@thoughtsunificator/grid",
-	"version": "1.0.16",
+	"version": "1.0.17",
 	"main": "index.js",
 	"type": "module",
 	"description": "Grid system",
