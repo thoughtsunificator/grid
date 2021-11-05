@@ -4,17 +4,17 @@
 class RelativePosition {
 
 	/**
-	 * @property AXE {Axe}
-	 * @property AXE.VERTICAL       {string}
-	 * @property AXE.HORIZONTAL     {string}
-	 * @property AXE.DIAGONAL_LEFT  {string}
-	 * @property AXE.DIAGONAL_RIGHT {string}
+	 * @property AXIS {Axis}
+	 * @property AXIS.VERTICAL       {string}
+	 * @property AXIS.HORIZONTAL     {string}
+	 * @property AXIS.DIAGONAL_LEFT  {string}
+	 * @property AXIS.DIAGONAL_RIGHT {string}
 	 */
-	static AXE = {
-		VERTICAL: "AXE_VERTICAL",
-		HORIZONTAL: "AXE_HORIZONTAL",
-		DIAGONAL_LEFT: "AXE_DIAGONAL_LEFT",
-		DIAGONAL_RIGHT: "AXE_DIAGONAL_RIGHT",
+	static AXIS = {
+		VERTICAL: "AXIS_VERTICAL",
+		HORIZONTAL: "AXIS_HORIZONTAL",
+		DIAGONAL_LEFT: "AXIS_DIAGONAL_LEFT",
+		DIAGONAL_RIGHT: "AXIS_DIAGONAL_RIGHT",
 	}
 
 	/**
@@ -28,20 +28,20 @@ class RelativePosition {
 	}
 
 	/**
-	 * @param {Axe}       axe
+	 * @param {Axis}       axis
 	 * @param {Direction} direction
 	 */
-	constructor(axe, direction) {
-		this._axe = axe
+	constructor(axis, direction) {
+		this._axis = axis
 		this._direction = direction
 	}
 
 	/**
 	 * @readonly
-	 * @type {Axe}
+	 * @type {Axis}
 	 */
-	get axe() {
-		return this._axe
+	get axis() {
+		return this._axis
 	}
 
 	/**
